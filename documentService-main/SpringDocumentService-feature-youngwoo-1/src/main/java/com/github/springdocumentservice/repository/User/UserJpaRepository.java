@@ -1,0 +1,16 @@
+package com.github.springdocumentservice.repository.User;
+
+import com.github.springdocumentservice.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface UserJpaRepository extends JpaRepository<User, Long> {
+
+    //email을 통해 사용자 정보를 가져옴
+    User findByEmail(String email);
+    Optional<User> findById(Long userId);
+    User findByUserId(Long userId);
+    Optional<User> findByUserNickname(String nickname);
+
+}
